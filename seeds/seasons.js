@@ -3,18 +3,18 @@ exports.seed = function (knex, Promise) {
   return knex('seasons').del()
     .then(function () {
       return knex('seasons').insert([
-        {id: 1, season: 'summer_1'},
-        {id: 2, season: 'summer_2'},
-        {id: 3, season: 'summer_3'},
-        {id: 4, season: 'autumn_1'},
-        {id: 5, season: 'autumn_2'},
-        {id: 6, season: 'autumn_3'},
-        {id: 7, season: 'winter_1'},
-        {id: 8, season: 'winter_2'},
-        {id: 9, season: 'winter_3'},
-        {id: 10, season: 'spring_1'},
-        {id: 11, season: 'spring_2'},
-        {id: 12, season: 'spring_3'}
+        {id: 1, season: 'Early Summer'},
+        {id: 2, season: 'Mid Summer'},
+        {id: 3, season: 'Late Summer'},
+        {id: 4, season: 'Early Autumn'},
+        {id: 5, season: 'Mid Autumn'},
+        {id: 6, season: 'Late Autumn'},
+        {id: 7, season: 'Early Winter'},
+        {id: 8, season: 'Mid Winter'},
+        {id: 9, season: 'Late Winter'},
+        {id: 10, season: 'Early Spring'},
+        {id: 11, season: 'Mid Spring'},
+        {id: 12, season: 'Late Spring'}
       ])
     })
 }

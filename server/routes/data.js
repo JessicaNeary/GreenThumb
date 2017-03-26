@@ -25,4 +25,15 @@ router.get('/name/:name', function (req, res) {
     })
 })
 
+router.get('/season/:seasonId', function (req, res) {
+  const id = req.params.seasonId
+  db.plantsBySeason(id)
+    .then(plants => {
+      return res.json(plants)
+    })
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
+})
+
 module.exports = router
