@@ -12,10 +12,10 @@ Webpack`
 ## Setup
 
 After cloning repo
-'npm install'
+`npm install`
 
 To run the app:
-'npm run dev'
+`npm run dev`
 
 To run the server:
-'npm start'
+`npm start`
