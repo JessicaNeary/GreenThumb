@@ -1,13 +1,14 @@
-var express = require('express')
-var router = express.Router()
+const express = require('express')
+const path = require('path')
 
-var db = require('../db')
+const data = require('./data')
 
-router.get('/cat', function (req, res) {
-  db.getCategories((err, products) => {
-    if (!err) res.json(products)
-    else return res.status(500).send(err.message)
-  })
+const router = express.Router()
+
+router.use('/data', data)
+
+router.get('*', (req, res) => {
+  return res.sendFile(path.join(__dirname, 'index.html'))
 })
 
 module.exports = router
