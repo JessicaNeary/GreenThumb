@@ -1,0 +1,46 @@
+exports.seed = function (knex, Promise) {
+  return knex('season_relations').del()
+    .then(function () {
+      return knex('season_relations').insert([
+        {id: 50001, season_id: 1, plant_id: 10001},
+        {id: 50002, season_id: 2, plant_id: 10001},
+        {id: 50003, season_id: 3, plant_id: 10001},
+        {id: 50004, season_id: 4, plant_id: 10001},
+        {id: 50005, season_id: 5, plant_id: 10001},
+        {id: 50006, season_id: 6, plant_id: 10001},
+        {id: 50007, season_id: 10, plant_id: 10001},
+        {id: 50008, season_id: 11, plant_id: 10001},
+        {id: 50009, season_id: 12, plant_id: 10001},
+        {id: 50010, season_id: 4, plant_id: 10002},
+        {id: 50011, season_id: 5, plant_id: 10002},
+        {id: 50012, season_id: 6, plant_id: 10002},
+        {id: 50013, season_id: 7, plant_id: 10002},
+        {id: 50014, season_id: 9, plant_id: 10002},
+        {id: 50015, season_id: 10, plant_id: 10002},
+        {id: 50016, season_id: 11, plant_id: 10002},
+        {id: 50017, season_id: 12, plant_id: 10002},
+        {id: 50018, season_id: 1, plant_id: 10003},
+        {id: 50019, season_id: 2, plant_id: 10003},
+        {id: 50020, season_id: 3, plant_id: 10003},
+        {id: 50021, season_id: 4, plant_id: 10003},
+        {id: 50022, season_id: 5, plant_id: 10003},
+        {id: 50023, season_id: 6, plant_id: 10003},
+        {id: 50024, season_id: 7, plant_id: 10003},
+        {id: 50025, season_id: 8, plant_id: 10003},
+        {id: 50026, season_id: 9, plant_id: 10003},
+        {id: 50027, season_id: 10, plant_id: 10003},
+        {id: 50028, season_id: 11, plant_id: 10003},
+        {id: 50029, season_id: 12, plant_id: 10003},
+        {id: 50030, season_id: 4, plant_id: 10004},
+        {id: 50031, season_id: 5, plant_id: 10004},
+        {id: 50032, season_id: 10, plant_id: 10004},
+        {id: 50033, season_id: 11, plant_id: 10004},
+        {id: 50034, season_id: 12, plant_id: 10004},
+        {id: 50035, season_id: 1, plant_id: 10005},
+        {id: 50036, season_id: 9, plant_id: 10005},
+        {id: 50037, season_id: 10, plant_id: 10005},
+        {id: 50038, season_id: 11, plant_id: 10005},
+        {id: 50039, season_id: 12, plant_id: 10005}
+      ])
+    })
+}

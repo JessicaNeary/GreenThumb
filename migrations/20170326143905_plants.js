@@ -1,11 +1,13 @@
 exports.up = function (knex, Promise) {
   return knex.schema.createTable('plants', function (table) {
-    table.increments('id').primary()
+    table.increments('id').unsigned().primary()
     table.string('name')
-    table.string('scientific name')
-    table.integer('planting_time').references('seasons.id')
-    table.integer('days_to_maturity')
-    table.integer('sowing distance')
+    table.string('scientific_name')
+    table.string('type')
+    table.string('harvest')
+    table.string('sowing_distance')
+    table.string('ideal_tempreture')
+    table.string('instructions')
   })
 }
 
