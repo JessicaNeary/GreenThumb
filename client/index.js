@@ -6,6 +6,8 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 
 import App from './components/App'
+import PlantView from './components/PlantView'
+import Home from './components/Home'
 import reducers from './reducers'
 
 let store = createStore(
@@ -20,7 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
     (
       <Provider store={store}>
         <Router history={browserHistory}>
-          <Route path='/' component={App} />
+          <Route path='/' component={App}>
+            <IndexRoute component={Home} />
+            <Route path='plant' component={PlantView} />
+          </Route>
         </Router>
       </Provider>
     ),

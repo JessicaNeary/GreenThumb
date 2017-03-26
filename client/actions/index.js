@@ -1,32 +1,31 @@
 import request from 'superagent'
 
-export const getCategories = () => {
+export const getPlantById = id => {
   return dispatch => {
-    dispatch(requestingCategories())
-    const target = `http://localhost:3000/cat`
+    dispatch(requestingPlant())
 
-    request.get(target)
+    request.get(`http://localhost:3000/db/${id}`)
       .then(res => {
-        dispatch(receivingCategories(res.body))
+        dispatch(receivingPlant(res.body))
       })
       .catch(err => {
         return dispatch({
-          type: 'CATEGORIES_REQ_FAILED',
+          type: 'PLANT_REQ_FAILED',
           message: err.message
         })
       })
   }
 }
 
-export const requestingCategories = () => {
+const requestingPlant = () => {
   return {
-    type: 'REQUESTING_CATEGORIES'
+    type: 'REQUESTING_PLANT'
   }
 }
 
-export const receivingCategories = data => {
+const receivingPlant = plant => {
   return {
-    type: 'UPDATE_CATEGORIES',
-    data
+    type: 'PLANT_REQ_SUCCESS',
+    plant
   }
 }

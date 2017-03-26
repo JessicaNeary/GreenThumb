@@ -1,6 +1,6 @@
 const knex = require('./knex')
 
-/* FUNCTIONS FOR UPDATING DATABASE */
+/* FUNCTIONS FOR ACCESSING DATABASE */
 function plantById (id) {
   return knex('plants')
     .where('id', id)

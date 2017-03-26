@@ -1,13 +1,13 @@
 const INITIAL_STATE = {
-  categories: []
+  plant: {}
 }
 
 const reducer = (state = INITIAL_STATE, action) => {
   const newState = Object.assign({}, state)
 
   switch (action.type) {
-    case 'UPDATE_CATEGORIES':
-      newState.categories = action.data
+    case 'PLANT_REQ_SUCCESS':
+      newState.plant = action.plant
       return newState
 
     default:
