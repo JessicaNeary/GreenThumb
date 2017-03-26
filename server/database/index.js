@@ -9,6 +9,7 @@ function plantById (id) {
 function plantByName (name) {
   return knex('plants')
     .where('name', 'like', name)
+    .orWhere('other_name', 'like', name)
 }
 
 module.exports = {

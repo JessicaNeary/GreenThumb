@@ -3,6 +3,7 @@ exports.up = function (knex, Promise) {
     table.increments('id').unsigned().primary()
     table.string('name')
     table.string('scientific_name')
+    table.string('other_name').nullable()
     table.string('type')
     table.string('harvest')
     table.string('sowing_distance')
