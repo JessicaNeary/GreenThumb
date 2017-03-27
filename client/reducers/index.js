@@ -1,3 +1,6 @@
+import { combineReducers } from 'redux'
+import { routerReducer } from 'react-router-redux'
+
 const INITIAL_STATE = {
   plant: {}
 }
@@ -15,4 +18,7 @@ const reducer = (state = INITIAL_STATE, action) => {
   }
 }
 
-export default reducer
+export default combineReducers({
+  reducer,
+  routing: routerReducer
+})
