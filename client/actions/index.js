@@ -3,7 +3,6 @@ import request from 'superagent'
 export const getPlantById = id => {
   return dispatch => {
     dispatch(requestingPlant())
-
     request.get(`http://localhost:3000/db/${id}`)
       .then(res => {
         dispatch(receivingPlant(res.body))

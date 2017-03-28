@@ -1,24 +1,27 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 
 import App from './components/App'
-import Plant from './components/Plant'
+import PlantView from './containers/PlantView'
 import Home from './components/Home'
-import reducers from './reducers'
+import NotFound from './components/NotFound'
+import reducer from './reducers'
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const store = createStore(
-  reducers, compose(
-    applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  reducer,
+  composeEnhancers(
+    applyMiddleware(thunk)
   )
 )
 
-const history = syncHistoryWithStore(browserHistory, store)
+const history = syncHistoryWithStore(hashHistory, store)
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
@@ -27,7 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <Router history={history}>
           <Route path='/' component={App}>
             <IndexRoute component={Home} />
-            <Route path='p' component={Plant} />
+            <Route path='/plant/:id' component={PlantView} />
+            <Route path='*' component={NotFound} />
           </Route>
         </Router>
       </Provider>

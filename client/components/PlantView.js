@@ -6,9 +6,11 @@ export default React.createClass({
   },
   render () {
     const plant = this.props.plant
+    const details = plant ? plant.name : null
     return (
       <div>
-        <h4>{plant.name}</h4>
+        <h3>Plants</h3>
+        <h4>{details}</h4>
       </div>
     )
   }

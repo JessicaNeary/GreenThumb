@@ -4,13 +4,14 @@ import PlantView from '../components/PlantView'
 import { getPlantById } from '../actions'
 
 const mapStateToProps = state => {
-  return {plant: state.plant}
+  return {plant: state.plants[0]}
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     getPlant: () => {
       const id = Number(ownProps.params.id)
+      console.log('id:', id)
       return dispatch(getPlantById(id))
     }
   }
