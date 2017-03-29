@@ -11,7 +11,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     getPlant: () => {
       const id = Number(ownProps.params.id)
-      console.log('id:', id)
       return dispatch(getPlantById(id))
     }
   }
