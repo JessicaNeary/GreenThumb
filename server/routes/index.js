@@ -36,4 +36,14 @@ router.get('/season/:seasonId', function (req, res) {
     })
 })
 
+router.get('/plants/all', function (req, res) {
+  db.allPlants(req.body)
+    .then(plants => {
+      return res.json(plants)
+    })
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
+})
+
 module.exports = router

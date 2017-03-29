@@ -20,8 +20,16 @@ function plantsBySeason (season) {
     .where('seasons.id', season)
 }
 
+function allPlants () {
+  return knex('season_relations')
+    .join('seasons', 'seasons.id', '=', 'season_relations.season_id')
+    .join('plants', 'plants.id', '=', 'season_relations.plant_id')
+    .select('plants.name', 'plants.id', 'seasons.season', 'seasons.id as season_id')
+}
+
 module.exports = {
   plantById,
   plantByName,
-  plantsBySeason
+  plantsBySeason,
+  allPlants
 }
