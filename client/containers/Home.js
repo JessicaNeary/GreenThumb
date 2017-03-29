@@ -1,17 +1,17 @@
 import { connect } from 'react-redux'
 
 import Home from '../components/Home'
-import { getCategories } from '../actions'
+import { allPlants } from '../actions'
 
 const mapStateToProps = state => {
   return {
-    categories: state.categories
+    plants: state.plants
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    getCategories: () => { return dispatch(getCategories()) }
+    allPlants: () => { return dispatch(allPlants()) }
   }
 }
 

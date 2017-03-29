@@ -10,7 +10,25 @@ export const getPlantById = id => {
       .catch(err => {
         return dispatch({
           type: 'PLANT_REQ_FAILED',
-          message: err.message
+          message: err.message,
+          error: err
+        })
+      })
+  }
+}
+
+export const allPlants = () => {
+  return dispatch => {
+    dispatch(requestingPlant())
+    request.get(`http://localhost:3000/db/plants/all`)
+      .then(res => {
+        dispatch(receivingPlant(res.body))
+      })
+      .catch(err => {
+        return dispatch({
+          type: 'PLANTS_REQ_FAILED',
+          message: err.message,
+          error: err
         })
       })
   }

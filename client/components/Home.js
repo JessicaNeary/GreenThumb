@@ -1,12 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router'
 
 export default React.createClass({
+  componentDidMount () {
+    this.props.allPlants()
+  },
   render () {
+    const plants = this.props.plants
+    const plantList = plants
+      ? plants.map(plant => {
+        <div>{plant.name}</div>
+      }) : null
     return (
       <div>
         <h4>Home</h4>
-        <Link to='/plant/10001'>Carrot</Link>
+        <div>{plantList}</div>
       </div>
     )
   }
