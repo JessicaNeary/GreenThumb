@@ -40,9 +40,9 @@ const requestingPlant = () => {
   }
 }
 
-const receivingPlant = plant => {
+const receivingPlant = plants => {
   return {
     type: 'PLANT_REQ_SUCCESS',
-    plant
+    plants
   }
 }
