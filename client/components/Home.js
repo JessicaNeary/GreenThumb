@@ -7,8 +7,8 @@ export default React.createClass({
     this.props.allPlants()
   },
   render () {
-    const data = [
-      {
+    const data = {
+      10001: {
         name: 'cabbage',
         seasons: [
           {id: 1},
@@ -17,7 +17,7 @@ export default React.createClass({
           {id: 5}
         ]
       },
-      {
+      10002: {
         name: 'carrot',
         seasons: [
           {id: 1},
@@ -26,11 +26,13 @@ export default React.createClass({
           {id: 6}
         ]
       }
-    ]
+    }
+    const plants = this.props.plants
+    const convertedData = Object.keys(plants).map(key => plants[key]) // turns object into array so it can be parsed by d3
 
     d3.select('.content').append('div')
       .selectAll('svg')
-      .data(data)
+      .data(convertedData)
       .enter()
       .append('svg')
       .attr('width', 500)
@@ -39,7 +41,7 @@ export default React.createClass({
       .text(function (d) {
         return d.name
       })
-      .attr('y', 10)
+      .attr('y', 12)
     d3.selectAll('svg').selectAll('rect')
         .data(function (d) {
           return d.seasons
@@ -55,8 +57,7 @@ export default React.createClass({
     return (
       <div>
         <h4>Home</h4>
-        <div className='content'>
-        </div>
+        <div className='content' />
       </div>
     )
   }

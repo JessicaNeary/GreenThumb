@@ -8,15 +8,15 @@ export default (state = [], action) => {
           const object = {
             name: plant.name,
             seasons: [{
-              season_id: plant.season_id,
-              season_name: plant.season
+              id: plant.season_id,
+              name: plant.season
             }]
           }
           newState[plant.id] = object
         } else {
           newState[plant.id].seasons.push({
-            season_id: plant.season_id,
-            season_name: plant.season
+            id: plant.season_id,
+            name: plant.season
           })
         }
       })
