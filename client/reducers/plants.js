@@ -2,7 +2,7 @@ export default (state = [], action) => {
   let newState = Object.assign({}, state)
 
   switch (action.type) {
-    case 'PLANT_REQ_SUCCESS':
+    case 'PLANTS_REQ_SUCCESS':
       action.plants.forEach(function (plant) {
         if (!newState[plant.id]) {
           const object = {
@@ -22,6 +22,9 @@ export default (state = [], action) => {
         }
       })
       return newState
+
+    case 'PLANT_REQ_SUCCESS':
+      return action.plant
 
     default:
       return state

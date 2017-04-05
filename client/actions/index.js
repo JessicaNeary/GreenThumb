@@ -22,7 +22,7 @@ export const allPlants = () => {
     dispatch(requestingPlant())
     request.get(`http://localhost:3000/db/plants/all`)
       .then(res => {
-        dispatch(receivingPlant(res.body))
+        dispatch(receivingPlants(res.body))
       })
       .catch(err => {
         return dispatch({
@@ -40,9 +40,16 @@ const requestingPlant = () => {
   }
 }
 
-const receivingPlant = plants => {
+const receivingPlants = plants => {
+  return {
+    type: 'PLANTS_REQ_SUCCESS',
+    plants
+  }
+}
+
+const receivingPlant = plant => {
   return {
     type: 'PLANT_REQ_SUCCESS',
-    plants
+    plant
   }
 }
