@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import Home from '../components/Home'
+import PlantList from '../components/PlantList'
 import { allPlants } from '../actions'
 
 const mapStateToProps = state => {
@@ -15,4 +15,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(PlantList)

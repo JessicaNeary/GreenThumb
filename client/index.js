@@ -8,7 +8,7 @@ import thunk from 'redux-thunk'
 
 import App from './components/App'
 import PlantView from './containers/PlantView'
-import Home from './containers/Home'
+import Home from './components/Home'
 import NotFound from './components/NotFound'
 import reducer from './reducers'
 
