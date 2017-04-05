@@ -6,6 +6,7 @@ export default (state = [], action) => {
       action.plants.forEach(function (plant) {
         if (!newState[plant.id]) {
           const object = {
+            id: plant.id,
             name: plant.name,
             seasons: [{
               id: plant.season_id,

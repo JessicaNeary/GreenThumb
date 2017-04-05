@@ -1,63 +1,38 @@
 import React from 'react'
-
-var d3 = require('d3')
+import { Link } from 'react-router'
 
 export default React.createClass({
   componentDidMount () {
     this.props.allPlants()
   },
   render () {
-    const data = {
-      10001: {
-        name: 'cabbage',
-        seasons: [
-          {id: 1},
-          {id: 2},
-          {id: 4},
-          {id: 5}
-        ]
-      },
-      10002: {
-        name: 'carrot',
-        seasons: [
-          {id: 1},
-          {id: 3},
-          {id: 4},
-          {id: 6}
-        ]
-      }
-    }
     const plants = this.props.plants
     const convertedData = Object.keys(plants).map(key => plants[key]) // turns object into array so it can be parsed by d3
-
-    d3.select('.content').append('div')
-      .selectAll('svg')
-      .data(convertedData)
-      .enter()
-      .append('svg')
-      .attr('width', 500)
-      .attr('height', 100)
-      .append('text')
-      .text(function (d) {
-        return d.name
+    const graph = convertedData.map(plant => {
+      const link = 'plant/' + plant.id
+      const seasons = plant.seasons.map(month => {
+        const x = 15 + (month.id * 40)
+        return (
+          <rect x={x} width='40' height='20' />
+        )
       })
-      .attr('y', 12)
-    d3.selectAll('svg').selectAll('rect')
-        .data(function (d) {
-          return d.seasons
-        })
-        .enter()
-        .append('rect')
-        .attr('width', 40)
-        .attr('height', 20)
-        .attr('x', function (d) {
-          return 15 + d.id * 40
-        })
-        .style('fill', 'green')
+      return (
+        <div className='plant'>
+          <Link to={link}>
+            {plant.name}
+            <svg width='500' height='100'>
+              {seasons}
+            </svg>
+          </Link>
+        </div>
+      )
+    })
     return (
       <div>
         <h4>Home</h4>
-        <div className='content' />
+        <div className='content'>
+          {graph}
+        </div>
       </div>
     )
   }
