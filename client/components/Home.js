@@ -13,11 +13,11 @@ export default React.createClass({
       const seasons = plant.seasons.map(month => {
         const x = 15 + (month.id * 40)
         return (
-          <rect x={x} width='40' height='20' />
+          <rect key={month.id} x={x} width='40' height='20' />
         )
       })
       return (
-        <div className='plant'>
+        <div key={plant.id} className='plant'>
           <Link to={link}>
             {plant.name}
             <svg width='500' height='100'>
