@@ -11,7 +11,7 @@ export default React.createClass({
     const graph = convertedData.map(plant => {
       const link = 'plant/' + plant.id
       const seasons = plant.seasons.map(month => {
-        const x = 15 + (month.id * 40)
+        const x = 100 + month.id * 40
         return (
           <rect key={month.id} x={x} width='40' height='20' />
         )
@@ -19,8 +19,8 @@ export default React.createClass({
       return (
         <div key={plant.id} className='plant'>
           <Link to={link}>
-            {plant.name}
-            <svg width='500' height='100'>
+            <svg className='graph' width='580' height='20' y='0'>
+              <text x='10' y='15'>{plant.name}</text>
               {seasons}
             </svg>
           </Link>
@@ -28,7 +28,7 @@ export default React.createClass({
       )
     })
     return (
-      <div className='content'>
+      <div className='PlantList'>
         {graph}
       </div>
     )
