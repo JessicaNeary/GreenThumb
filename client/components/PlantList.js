@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router'
-import d3 from 'd3'
 
 export default React.createClass({
   componentDidMount () {
@@ -13,14 +12,19 @@ export default React.createClass({
       const link = 'plant/' + plant.id
       const seasons = plant.seasons.map(month => {
         const x = 100 + month.id * 40
+        let fill = 'black'
+        if (month.id <= 3) fill = '#fff484'
+        else if (month.id <= 6) fill = '#d65948'
+        else if (month.id <= 9) fill = '#7bb1d1'
+        else fill = '#a8e580'
         return (
-          <rect key={month.id} x={x} width='40' height='20' />
+          <rect key={month.id} x={x} width='40' height='20' fill={fill} />
         )
       })
       return (
         <div key={plant.id} className='plant'>
           <Link to={link}>
-            <svg className='graph' width='580' height='20'>
+            <svg className='graph' width='620' height='20' y='0'>
               <text x='10' y='15'>{plant.name}</text>
               {seasons}
             </svg>
