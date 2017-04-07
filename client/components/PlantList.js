@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
+import d3 from 'd3'
 
 export default React.createClass({
   componentDidMount () {
@@ -19,7 +20,7 @@ export default React.createClass({
       return (
         <div key={plant.id} className='plant'>
           <Link to={link}>
-            <svg className='graph' width='580' height='20' y='0'>
+            <svg className='graph' width='580' height='20'>
               <text x='10' y='15'>{plant.name}</text>
               {seasons}
             </svg>
@@ -27,8 +28,15 @@ export default React.createClass({
         </div>
       )
     })
+
     return (
       <div className='PlantList'>
+        <div className='headings'>
+          <p>Summer</p>
+          <p>Autumn</p>
+          <p>Winter</p>
+          <p>Spring</p>
+        </div>
         {graph}
       </div>
     )

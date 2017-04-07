@@ -1,0 +1,11 @@
+.PlantList {
+  margin: auto;
+  border: 1px solid black;
+}
+
+.PlantList .headings {
+  padding-left: 120px;
+  width: 480px;
+  display: flex;
+  justify-content: space-around;
+}
