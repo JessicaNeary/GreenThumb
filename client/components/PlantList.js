@@ -25,7 +25,7 @@ export default React.createClass({
         <div key={plant.id} className='plant'>
           <Link to={link}>
             <svg className='graph' width='620' height='20' y='0'>
-              <text x='10' y='15'>{plant.name}</text>
+              <text id='names' x='130' y='17' fill='#ffffff' textAnchor='end'>{plant.name}</text>
               {seasons}
             </svg>
           </Link>
