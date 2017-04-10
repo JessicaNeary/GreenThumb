@@ -1,10 +1,12 @@
 import React from 'react'
 
+import Header from './Header'
+
 export default React.createClass({
   render () {
     return (
       <div className='app'>
-        <h1>Welcome</h1>
+        <Header />
         {this.props.children}
       </div>
     )
