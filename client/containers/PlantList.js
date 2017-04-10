@@ -4,8 +4,9 @@ import PlantList from '../components/PlantList'
 import { allPlants } from '../actions'
 
 const mapStateToProps = state => {
+  const plants = Object.keys(state.plants).map(key => state.plants[key])
   return {
-    plants: state.plants
+    plants
   }
 }
 
